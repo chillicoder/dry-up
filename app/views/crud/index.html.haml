@@ -1,0 +1,23 @@
+%h1
+  = resources_class.to_s.pluralize
+  \|
+  = link_to t('.new'), [:new, resource_class.to_s.downcase.to_sym]
+
+%table
+  %thead
+    %tr
+      - attrs_for_index.each do |attr|
+        %th
+          = attr.to_s.titlecase
+      %th/
+
+  %tbody
+    - collection.each do |resource|
+      %tr
+        - attrs_for_index.each do |attr|
+          %td
+            = link_to resource.attribures[attr.to_s], resource
+        %td
+          = link_to t('.edit'), [:edit, resource]
+
+%p Find me in app/views/crud/index.html.haml

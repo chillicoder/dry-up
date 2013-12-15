@@ -1,0 +1,17 @@
+%h1
+  #{resource.class} #{resource.id}
+  %small
+    = link_to t('.edit'), [:edit, resource]
+
+%table
+  %thead
+    %th key
+    %th value
+
+  %tbody
+    - resource.attributes.sort.each do |key, value|
+      %tr
+        %td= key
+        %td= value
+
+%p Find me in app/views/crud/show.html.haml
