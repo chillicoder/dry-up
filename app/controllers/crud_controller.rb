@@ -1,13 +1,17 @@
-class CrudController < ApplicationController
-  def index
+class CrudController < InheritedResources::Base
+  def attr_to_link_to
+    'id'
   end
 
-  def new
+  def attrs_for_index
+    []
   end
 
-  def show
+  def attrs_for_form
+    []
   end
 
-  def edit
-  end
+  helper_method :attrs_for_index
+  helper_method :attrs_for_form
+  helper_method :attr_to_link_to
 end

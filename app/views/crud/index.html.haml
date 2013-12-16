@@ -1,23 +1,29 @@
 %h1
-  = resources_class.to_s.pluralize
+  = resource_class.to_s.pluralize
   \|
   = link_to t('.new'), [:new, resource_class.to_s.downcase.to_sym]
 
-%table
+%table(border="1" cellpadding="3" cellspacing="3" width="100%")
   %thead
     %tr
+      %th
+        = resource_class.human_attribute_name(attr_to_link_to.to_sym)
       - attrs_for_index.each do |attr|
         %th
-          = attr.to_s.titlecase
+          = resource_class.human_attribute_name(attr.to_s)
       %th/
 
   %tbody
     - collection.each do |resource|
       %tr
+        %td
+          = link_to resource.attributes[attr_to_link_to], resource
         - attrs_for_index.each do |attr|
           %td
-            = link_to resource.attribures[attr.to_s], resource
+            = resource.attributes[attr.to_s].to_s
         %td
           = link_to t('.edit'), [:edit, resource]
+
+= debug(collection)
 
 %p Find me in app/views/crud/index.html.haml

@@ -1,6 +1,8 @@
 = simple_form_for resource do |f|
+  = f.error_notification
+
   - attrs_for_form.each do |attr|
     = f.input attr
 
-    = f.button :submit
+  = f.button :submit
 
