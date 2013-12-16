@@ -1,4 +1,4 @@
-= simple_form_for resource_url do |f|
+= simple_form_for [:admin, resource] do |f|
   = f.error_notification
 
   - attrs_for_form.each do |attr|
