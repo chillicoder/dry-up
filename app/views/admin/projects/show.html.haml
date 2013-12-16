@@ -1,0 +1,25 @@
+%h1
+  #{resource.class} #{resource.id}
+%p
+  = link_to t('.edit'), edit_resource_path
+  \|
+  = link_to t('.home'), collection_url
+
+%dl
+  - resource.attributes.each do |key,value|
+    %dt= key
+    %dd= value
+
+- if resource.tasks.size > 0
+  %table(border=1)
+    %thead
+      %th= Task.human_attribute_name(:name)
+      %th= Task.human_attribute_name(:priority)
+
+    %tbody
+      - resource.tasks.each do |task|
+        %tr
+          %td= link_to task.name, [:admin, resource, task]
+          %td= task.priority
+
+= link_to t('.add_task'), [:new, :admin, resource, :task]

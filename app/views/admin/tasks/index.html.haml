@@ -1,0 +1,31 @@
+%h1
+  = link_to parent.name, parent_path
+  \|
+  = resource_class.model_name.human.pluralize
+  \|
+  = link_to t('.new'), new_resource_path
+
+%table(border="1" cellpadding="3" cellspacing="3" width="100%")
+  %thead
+    %tr
+      %th
+        = resource_class.human_attribute_name(attr_to_link_to.to_sym)
+      %th= resource_class.human_attribute_name(:priority)
+      %th= Project.model_name.human
+      %th/
+
+  %tbody
+    - collection.each do |resource|
+      %tr
+        %td
+          = link_to resource.attributes[attr_to_link_to], resource_path(resource)
+        %td= resource.priority
+        %td= resource.project.name
+        %td
+          = link_to t('.edit'), edit_resource_url(resource)
+
+= debug(collection)
+= debug(parent)
+
+%p Find me in app/views/admin/tasks/index.html.haml
+

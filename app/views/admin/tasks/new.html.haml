@@ -1,0 +1,12 @@
+%h1
+  New #{resource_class.model_name.human}
+
+= simple_form_for(resource, url: collection_url) do |f|
+  = f.error_notification
+
+  - attrs_for_form.each do |attr|
+    = f.input attr
+
+  = f.button :submit
+
+%p Find me in app/views/admin/tasks/new.html.haml

@@ -1,9 +1,9 @@
 DryCrud::Application.routes.draw do
-  resources :faqs
-
   namespace :admin do
     resources :faqs
-    resources :projects
+    resources :projects do
+      resources :tasks
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

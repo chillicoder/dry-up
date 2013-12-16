@@ -5,15 +5,9 @@
   \|
   = link_to t('.home'), collection_url
 
-%table
-  %thead
-    %th key
-    %th value
-
-  %tbody
-    - resource.attributes.sort.each do |key, value|
-      %tr
-        %td= key
-        %td= value
+%dl
+  - resource.attributes.each do |key,value|
+    %dt= key
+    %dd= value
 
 %p Find me in app/views/crud/show.html.haml
