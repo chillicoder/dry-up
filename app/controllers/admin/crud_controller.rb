@@ -1,4 +1,4 @@
-class CrudController < InheritedResources::Base
+class Admin::CrudController < InheritedResources::Base
   def attr_to_link_to
     'id'
   end

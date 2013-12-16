@@ -1,7 +1,7 @@
 %h1
   = resource_class.to_s.pluralize
   \|
-  = link_to t('.new'), [:new, resource_class.to_s.downcase.to_sym]
+  = link_to t('.new'), new_resource_path
 
 %table(border="1" cellpadding="3" cellspacing="3" width="100%")
   %thead
@@ -17,12 +17,12 @@
     - collection.each do |resource|
       %tr
         %td
-          = link_to resource.attributes[attr_to_link_to], resource
+          = link_to resource.attributes[attr_to_link_to], resource_path(resource)
         - attrs_for_index.each do |attr|
           %td
             = resource.attributes[attr.to_s].to_s
         %td
-          = link_to t('.edit'), [:edit, resource]
+          = link_to t('.edit'), edit_resource_url(resource)
 
 = debug(collection)
 

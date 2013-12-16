@@ -1,7 +1,9 @@
 %h1
   #{resource.class} #{resource.id}
-  %small
-    = link_to t('.edit'), [:edit, resource]
+%p
+  = link_to t('.edit'), edit_resource_path
+  \|
+  = link_to t('.home'), collection_url
 
 %table
   %thead
