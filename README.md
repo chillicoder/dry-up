@@ -1,5 +1,5 @@
 ## DRY your Rails CRUD with Simple Form and Inherited Resouces
-### Extendend edition
+### Extended edition
 
 [Original
 reference](http://www.petekeen.net/dry-your-rails-crud-with-simple-form-and-inherited-resources)
